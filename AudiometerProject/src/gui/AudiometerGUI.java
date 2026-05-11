@@ -70,7 +70,7 @@ public class AudiometerGUI {
 
         JButton sendBtn = new JButton("Send Tone");
         // JButton simulateBtn = new JButton("Simulate: Heard");
-        // JButton noResponseBtn = new JButton("No Response");
+        JButton noResponseBtn = new JButton("No Response");
 
         // Frekans değiştiğinde eşik geçmişini sıfırla (Veri sızıntısını önler)
         freqBox.addActionListener(e -> {
@@ -87,14 +87,14 @@ public class AudiometerGUI {
 
         sendBtn.addActionListener(e -> sendTone());
         // simulateBtn.addActionListener(e -> onResponse(true));
-        // noResponseBtn.addActionListener(e -> onResponse(false)); // Geliştirici testi için kullanılabilir.
+        noResponseBtn.addActionListener(e -> onResponse(false));
 
         topPanel.add(new JLabel("Freq:")); topPanel.add(freqBox);
         topPanel.add(new JLabel("dB HL:")); topPanel.add(dbField);
         topPanel.add(earSelectBox);
         topPanel.add(sendBtn);
         // topPanel.add(simulateBtn);
-        // topPanel.add(noResponseBtn);
+        topPanel.add(noResponseBtn);
 
         frame.add(topPanel, BorderLayout.NORTH);
         frame.add(chart.createChartPanel(), BorderLayout.CENTER);
