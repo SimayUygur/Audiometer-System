@@ -69,8 +69,8 @@ public class AudiometerGUI {
         earSelectBox = new JComboBox<>(new String[]{"Right Ear (Red O)", "Left Ear (Blue X)"});
 
         JButton sendBtn = new JButton("Send Tone");
-        JButton simulateBtn = new JButton("Simulate: Heard");
-        JButton noResponseBtn = new JButton("No Response");
+        // JButton simulateBtn = new JButton("Simulate: Heard");
+        // JButton noResponseBtn = new JButton("No Response");
 
         // Frekans değiştiğinde eşik geçmişini sıfırla (Veri sızıntısını önler)
         freqBox.addActionListener(e -> {
@@ -86,15 +86,15 @@ public class AudiometerGUI {
         });
 
         sendBtn.addActionListener(e -> sendTone());
-        simulateBtn.addActionListener(e -> onResponse(true));
-        noResponseBtn.addActionListener(e -> onResponse(false)); // +5 dB (Duymadı) akışını tetikler
+        // simulateBtn.addActionListener(e -> onResponse(true));
+        // noResponseBtn.addActionListener(e -> onResponse(false)); // Geliştirici testi için kullanılabilir.
 
         topPanel.add(new JLabel("Freq:")); topPanel.add(freqBox);
         topPanel.add(new JLabel("dB HL:")); topPanel.add(dbField);
         topPanel.add(earSelectBox);
         topPanel.add(sendBtn);
-        topPanel.add(simulateBtn);
-        topPanel.add(noResponseBtn);
+        // topPanel.add(simulateBtn);
+        // topPanel.add(noResponseBtn);
 
         frame.add(topPanel, BorderLayout.NORTH);
         frame.add(chart.createChartPanel(), BorderLayout.CENTER);
