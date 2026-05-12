@@ -17,7 +17,6 @@ public class SerialHandler {
         this.onDataReceived = callback;
     }
 
-    // BAĞLANTI DURUMU DÜZELTMESİ: GUI'ye bağlandığını veya hata sebebini bildiren metot
     public boolean connect(Consumer<String> onError) {
         SerialPort[] ports = SerialPort.getCommPorts();
         if (ports.length == 0) {

@@ -42,6 +42,7 @@ public class AudiogramChart {
         
         // dB ekseni ters (Odyogram standardı)
         plot.getRangeAxis().setInverted(true);
+        plot.getRangeAxis().setRange(-10, 120);
 
         // 1. DÜZELTME: Frekans eksenini Lineer'den Eşit Aralık'lı Oktav (SymbolAxis) yapısına çeviriyoruz.
         SymbolAxis xAxis = new SymbolAxis("Frequency (Hz)", freqLabels);
@@ -49,13 +50,19 @@ public class AudiogramChart {
 
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer(true, true);
 
+        // Sağ Kulak (Seri 0) Ayarları: Kırmızı O
         Shape circle = new Ellipse2D.Double(-5, -5, 10, 10);
         renderer.setSeriesShape(0, circle);
         renderer.setSeriesPaint(0, Color.RED);
+        renderer.setSeriesShapesFilled(0, false); // İçini boşaltır.
+        renderer.setSeriesStroke(0, new BasicStroke(2.0f)); // Halkayı belirginleştirmek için kalınlaştırır
 
+        // Sol Kulak (Seri 1) Ayarları: Mavi X
         Shape cross = createCrossShape(5);
         renderer.setSeriesShape(1, cross);
         renderer.setSeriesPaint(1, Color.BLUE);
+        renderer.setSeriesShapesFilled(1, true); // X sembolü için dolgu fark etmez ama true kalabilir
+        renderer.setSeriesStroke(1, new BasicStroke(2.0f)); // X işaretini de aynı kalınlığa getirir
 
         plot.setRenderer(renderer);
         return new ChartPanel(chart);

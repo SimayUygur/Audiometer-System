@@ -1,5 +1,5 @@
-/** 
- * * Bağımlılıklar:
+/**
+ * Bağımlılıklar:
  * 1. jSerialComm: Seri haberleşme için.
  * 2. JFreeChart: Odyogram çizimi için.
  */

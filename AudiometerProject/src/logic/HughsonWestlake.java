@@ -34,9 +34,6 @@ public class HughsonWestlake {
         }
     }
 
-    /**
-     * Kural: Aynı seviyede en az 3 ascending sunum içinde 2 kez yanıt alınırsa eşik kabul edilir.
-     */
     public Optional<Integer> determineThreshold(List<Trial> trials) {
         if (trials.size() < 3) {
             return Optional.empty();

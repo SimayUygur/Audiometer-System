@@ -64,8 +64,7 @@ public class AudiometerGUI {
         freqBox = new JComboBox<>(Constants.FREQUENCIES);
         dbField = new JTextField("50", 5);
         currentFreq = (int) freqBox.getSelectedItem();
-        
-        // Klinik olarak daha güvenli olan kulak seçimi (Checkbox yerine ComboBox)
+
         earSelectBox = new JComboBox<>(new String[]{"Right Ear (Red O)", "Left Ear (Blue X)"});
 
         JButton sendBtn = new JButton("Send Tone");
@@ -153,7 +152,7 @@ public class AudiometerGUI {
                 log(">>> BAŞARILI: " + currentFreq + " Hz için KLİNİK EŞİK BULUNDU: " + finalDb + " dB <<<");
                 currentTrials.clear();
                 
-                return; // Eşik bulunduğunda algoritmanın o frekans için adım değiştirmesini durdur.
+                return; 
             }
         } else {
             log("Sistem -> Hasta duymadı (" + currentDb + " dB).");
